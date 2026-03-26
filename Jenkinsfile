@@ -49,10 +49,11 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS}", variable: 'KUBECONFIG_FILE')]) {
                     sh '''
-                    mkdir -p $HOME/.kube
-                    cp $KUBECONFIG_FILE $HOME/.kube/config
-                    chmod 600 $HOME/.kube/config
+                    mkdir -p /var/lib/jenkins/.kube
+                    cp $KUBECONFIG_FILE /var/lib/jenkins/.kube/config
+                    chmod 600 /var/lib/jenkins/.kube/config
 
+                    export KUBECONFIG=/var/lib/jenkins/.kube/config
                     kubectl get nodes
                     '''
                 }
