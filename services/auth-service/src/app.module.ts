@@ -17,10 +17,10 @@ import { UserProfile } from './auth/entities/user-profile.entity';
     }),
     TypeOrmModule.forRoot({
       type: 'mssql',
-      host: process.env.DB_HOST ?? '34.21.133.54',
+      host: process.env.DB_HOST ?? '',
       port: Number(process.env.DB_PORT ?? 1433),
-      username: process.env.DB_USERNAME ?? 'sa',
-      password: process.env.DB_PASSWORD ?? 'abc@XYZ1234',
+      username: process.env.DB_USERNAME ?? '',
+      password: process.env.DB_PASSWORD ?? '',
       database: process.env.DB_NAME ?? 'YHCT_DB',
       entities: [Account, UserProfile, RevokedToken, EmailVerification, Session],
       synchronize: false,

@@ -60,12 +60,12 @@ export class AuthService {
     this.privateKey = this.loadKey(
       process.env.JWT_PRIVATE_KEY_BASE64,
       process.env.JWT_PRIVATE_KEY_PATH ??
-        'services/auth-service/keys/jwt.private.pem',
+        '',
     );
     this.publicKey = this.loadKey(
       process.env.JWT_PUBLIC_KEY_BASE64,
       process.env.JWT_PUBLIC_KEY_PATH ??
-        'services/auth-service/keys/jwt.public.pem',
+        '',
     );
 
     this.accessExpiresIn = process.env.JWT_ACCESS_EXPIRES_IN ?? '15m';

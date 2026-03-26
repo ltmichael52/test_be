@@ -6,6 +6,16 @@ import { RolesGuard } from './auth/guards/roles.guard';
 @Controller('me')
 export class AppController {
   @Get()
+  root() {
+    return 'OK';
+  }
+
+  @Get('health')
+  health() {
+    return 'OK';
+  }
+
+  @Get('me')
   @UseGuards(JwtAuthGuard)
   me() {
     return { ok: true };

@@ -10,7 +10,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       ? Buffer.from(process.env.JWT_PUBLIC_KEY_BASE64, 'base64').toString('utf8')
       : readFileSync(
           process.env.JWT_PUBLIC_KEY_PATH ??
-            'services/auth-service/keys/jwt.public.pem',
+            '',
           'utf8',
         );
 
